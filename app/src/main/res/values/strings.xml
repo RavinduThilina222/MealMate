@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MealMate</string>
+    <string name="logo_desc">MealMate Logo</string>
+    <string name="register_txt">Don\'t have an account? Register here</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+</resources>
