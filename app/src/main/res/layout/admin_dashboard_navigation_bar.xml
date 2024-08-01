@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,147 +13,100 @@
         android:background="#F0873A"
         android:gravity="top"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:ignore="MissingConstraints">
 
         <!-- Menu Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnMenus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_menu_resized" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Menus"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:drawablePadding="8dp"
+            android:gravity="start|center_vertical"
+            android:padding="8dp"
+            android:text="Menus"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_menu" />
 
         <!-- Orders Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnOrders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_orders" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Orders"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:drawablePadding="8dp"
+            android:gravity="start|center_vertical"
+            android:padding="8dp"
+            android:text="Orders"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_orders"
+            app:iconSize="18dp" />
 
         <!-- Customers Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnCustomers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_customers" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Customers"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="Customers"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_customers"
+            android:drawablePadding="8dp"
+            android:padding="8dp" />
 
         <!-- Branches Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnBranches"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_branches" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Branches"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="Branches"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_branches"
+            android:drawablePadding="8dp"
+            android:padding="8dp" />
 
         <!-- Analytics Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnAnalytics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_analytics" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Analytics"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="Analytics"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_analytics"
+            android:drawablePadding="8dp"
+            android:padding="8dp" />
 
         <!-- Promotion Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnPromotion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_promotion" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Promotion"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="Promotion"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_promotion"
+            android:drawablePadding="8dp"
+            android:padding="8dp" />
 
         <!-- Notification Item -->
-        <LinearLayout
+        <Button
+            android:id="@+id/btnNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_notification" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Notification"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="Notification"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_notification"
+            android:drawablePadding="8dp"
+            android:padding="8dp" />
 
     </LinearLayout>
 

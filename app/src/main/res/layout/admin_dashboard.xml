@@ -9,11 +9,28 @@
         android:id="@+id/adminNavBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F44336" >
-
+        android:background="#F0873A" >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/mealmate" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/menu_icon"
+            android:padding="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:id="@+id/dashboardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:padding="16dp"
+            android:text="@string/dashboard"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
     </LinearLayout>
+
 </RelativeLayout>
