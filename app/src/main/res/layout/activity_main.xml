@@ -2,82 +2,94 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="#F8E1D8"
     tools:context=".MainActivity">
 
-    <!-- Illustration -->
+    <!-- Background Image -->
     <ImageView
-        android:id="@+id/logoimage"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTintMode="screen"
+        android:paddingTop="350dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_image" />
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/mealmate"/>
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/logo_desc"
+        android:src="@drawable/mealmate" />
 
     <!-- Login Form -->
     <LinearLayout
         android:id="@+id/loginForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logoimage"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/logoImage"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:background="@android:color/white"
+        android:elevation="10dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_gravity="center"
-        android:elevation="10dp">
-
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_gravity="center"/>
+        android:padding="20dp">
 
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Username"
-            android:inputType="text"
             android:layout_marginTop="10dp"
-            android:padding="10dp"/>
+            android:hint="@string/enter_user_name"
+            android:inputType="text"
+            android:padding="10dp" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
             android:layout_marginTop="10dp"
-            android:padding="10dp"/>
+            android:hint="@string/enter_password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:backgroundTint="#FF7E5F"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FF9500"
+            android:text="@string/sign_in"
+            android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/tvSignup"
+            android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:clickable="true"
             android:focusable="true"
-            android:text="Don't have an account? Sign up"
-            android:textColor="@android:color/holo_blue_dark"
-            android:layout_gravity="center"/>
+            android:text="@string/forgot_password"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FFCC00"
+            android:text="@string/register"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#000000" />
     </LinearLayout>
 
 </RelativeLayout>

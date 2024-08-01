@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
-    private TextView tvSignup;
+    private Button btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        tvSignup = findViewById(R.id.tvSignup);
+        btnRegister = findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tvSignup.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle signup logic here
-                Toast.makeText(MainActivity.this, "Redirect to sign up page", Toast.LENGTH_SHORT).show();
+                // Handle register logic here
+                Toast.makeText(MainActivity.this, "Register", Toast.LENGTH_SHORT).show();
             }
         });
     }
