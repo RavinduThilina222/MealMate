@@ -14,9 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTintMode="screen"
-        android:paddingTop="300dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_image" />
+        android:src="@drawable/rsz_background_image" />
 
     <!-- Logo Image -->
     <ImageView

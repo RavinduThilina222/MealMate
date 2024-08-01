@@ -1,6 +1,7 @@
 // MainActivity.java
 package com.example.mealmate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,15 +31,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-
-                if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please enter your username and password", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Handle login logic here
-                    Toast.makeText(MainActivity.this, "Login with username: " + username, Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(MainActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
             }
         });
 

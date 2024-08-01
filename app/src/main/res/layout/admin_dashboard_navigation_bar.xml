@@ -27,7 +27,8 @@
             android:padding="8dp"
             android:text="Menus"
             android:textColor="@android:color/white"
-            app:icon="@drawable/ic_menu" />
+            app:icon="@drawable/ic_menu"
+            android:onClick="onMenuPressed"/>
 
         <!-- Orders Item -->
         <Button
