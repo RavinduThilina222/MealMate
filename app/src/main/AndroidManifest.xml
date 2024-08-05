@@ -29,6 +29,14 @@
             android:exported="true"/>
         <activity android:name=".CustomerManagementActivity"
             android:exported="true"/>
+        <activity android:name=".BranchesActivity"
+            android:exported="true"/>
+        <activity android:name=".AnalyticsActivity"
+            android:exported="true"/>
+        <activity android:name=".NotificationAdminActivity"
+            android:exported="true"/>
+        <activity android:name=".PromotionActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
