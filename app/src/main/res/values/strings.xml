@@ -11,4 +11,11 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="register">Register</string>
     <string name="dashboard">Dashboard</string>
+    <string name="total_orders_count">Total Order Count</string>
+    <string name="customer_count">Customer Count</string>
+    <string name="customer_count_value">Customer Count value</string>
+    <string name="monthly_analytics">Monthly Analytics</string>
+    <string name="total_orders">Total Orders</string>
+    <string name="menu_management">Menus</string>
+    <string name="orders_management">Orders</string>
 </resources>

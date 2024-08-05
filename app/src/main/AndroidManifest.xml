@@ -23,6 +23,10 @@
         </activity>
         <activity android:name=".AdminDashboardActivity"
             android:exported="true"/>
+        <activity android:name=".MenuManagementActivity"
+            android:exported="true"/>
+        <activity android:name=".OrderManagementActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
