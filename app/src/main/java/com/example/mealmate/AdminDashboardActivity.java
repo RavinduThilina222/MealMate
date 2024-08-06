@@ -62,6 +62,42 @@ public class AdminDashboardActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btnNotification).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Notification Management button click
+                Intent intent = new Intent(AdminDashboardActivity.this, NotificationAdminActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.btnBranches).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Branch Management button click
+                Intent intent = new Intent(AdminDashboardActivity.this, BranchesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.btnAnalytics).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Analytics button click
+                Intent intent = new Intent(AdminDashboardActivity.this, AnalyticsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.btnPromotion).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Promotion button click
+                Intent intent = new Intent(AdminDashboardActivity.this, PromotionActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
