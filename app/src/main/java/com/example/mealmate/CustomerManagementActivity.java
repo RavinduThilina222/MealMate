@@ -98,5 +98,14 @@ public class CustomerManagementActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Dashboard button click
+                Intent intent = new Intent(CustomerManagementActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

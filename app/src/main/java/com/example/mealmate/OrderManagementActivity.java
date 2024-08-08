@@ -98,5 +98,14 @@ public class OrderManagementActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Handle Dashboard button click
+        findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderManagementActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -21,4 +21,14 @@
     <string name="branches">Branches</string>
     <string name="analytics">Analytics</string>
     <string name="promotions">Promotions</string>
+    <string name="add_food_item">Add Food Item</string>
+    <string name="logout">Logout</string>
+    <string-array name="meals_array">
+            <item>Breakfast</item>
+            <item>Lunch</item>
+            <item>Dinner</item>
+            <item>Soft Drinks</item>
+            <item>Desserts</item>
+        </string-array>
+
 </resources>

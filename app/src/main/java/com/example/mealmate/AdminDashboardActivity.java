@@ -98,6 +98,14 @@ public class AdminDashboardActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Dashboard button click
+                Intent intent = new Intent(AdminDashboardActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

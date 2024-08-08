@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <!-- Vertical Navigation Bar -->
     <LinearLayout
         android:id="@+id/adminNavBar"
@@ -16,6 +17,27 @@
         android:padding="16dp"
         tools:ignore="MissingConstraints">
 
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20sp"
+            android:src="@drawable/mealmate" />
+        <!-- Dashboard Item -->
+        <Button
+            android:id="@+id/btnDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawablePadding="8dp"
+            android:gravity="start|center_vertical"
+            android:padding="8dp"
+            android:text="Dashboard"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_dashboard"
+            android:onClick="onDashboardPressed"/>
         <!-- Menu Item -->
         <Button
             android:id="@+id/btnMenus"
@@ -108,6 +130,34 @@
             app:icon="@drawable/ic_notification"
             android:drawablePadding="8dp"
             android:padding="8dp" />
+
+        <!--add admin button-->
+        <Button
+            android:id="@+id/btnAddAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="Add Admin"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_add_admin"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            />
+        <!--logout button-->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start|center_vertical"
+            android:text="@string/logout"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_logout"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="200dp"/>
 
     </LinearLayout>
 

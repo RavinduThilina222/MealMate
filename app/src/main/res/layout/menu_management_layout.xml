@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/menubar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,7 +14,8 @@
             android:id="@+id/adminNavBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F0873A" >
+            android:background="#F0873A"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/BtnMenu"
@@ -21,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
                 android:gravity="start"
-                app:icon="@drawable/menu_icon"/>
+                android:drawableStart="@drawable/menu_icon" />
 
             <TextView
                 android:id="@+id/dashboardText"
@@ -33,17 +35,66 @@
                 android:text="@string/menu_management"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
+        </LinearLayout>
 
+        <!-- Content Layout -->
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/adminNavBar">
+
+            <!-- Spinner for Meal Selection -->
+            <Spinner
+                android:id="@+id/mealSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/meals_array"
+                android:padding="8dp"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <!-- Container for Add Food Item Button -->
+            <LinearLayout
+                android:id="@+id/addFoodItemButtonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:layout_marginTop="16dp">
+
+                <!-- Add Food Item Button -->
+                <Button
+                    android:id="@+id/addFoodItemButton"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_food_item"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="120dp"
+                    />
+            </LinearLayout>
+
+            <!-- Container for Food Items -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/foodItemsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:scrollbars="vertical" />
         </LinearLayout>
     </RelativeLayout>
 
-    <!--include the menu navigation bar-->
     <!-- Navigation Drawer -->
     <include
         layout="@layout/admin_dashboard_navigation_bar"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -98,5 +98,15 @@ public class PromotionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //admin dashboard button
+        findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Admin Dashboard button click
+                Intent intent = new Intent(PromotionActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

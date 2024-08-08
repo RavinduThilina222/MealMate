@@ -65,5 +65,13 @@ public class NotificationAdminActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
+            findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(NotificationAdminActivity.this, AdminDashboardActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 }

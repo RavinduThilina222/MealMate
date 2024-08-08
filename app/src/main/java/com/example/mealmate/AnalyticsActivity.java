@@ -97,6 +97,16 @@ public class AnalyticsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //admin dashboard button
+        findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Admin Dashboard button click
+                Intent intent = new Intent(AnalyticsActivity.this, AdminDashboardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
