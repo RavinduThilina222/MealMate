@@ -132,7 +132,7 @@ public class MenuManagementActivity extends AppCompatActivity {
         findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle Dashboard button click
+                // Handle Dashboard button click (go back to AdminDashboardActivity)
                 Intent intent = new Intent(MenuManagementActivity.this, AdminDashboardActivity.class);
                 startActivity(intent);
             }

@@ -107,5 +107,14 @@ public class AdminDashboardActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btnLogout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Logout button click
+                Intent intent = new Intent(AdminDashboardActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

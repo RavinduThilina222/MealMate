@@ -107,6 +107,16 @@ public class AnalyticsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //logout button
+        findViewById(R.id.btnLogout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle Logout button click
+                Intent intent = new Intent(AnalyticsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
