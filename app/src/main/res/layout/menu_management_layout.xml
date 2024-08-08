@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="left"
-                android:padding="16dp"
+                android:padding="15dp"
                 android:text="@string/menu_management"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
