@@ -1,4 +1,4 @@
-package com.example.mealmate;
+package com.example.mealmate.admin_activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.mealmate.R;
 
 public class NotificationAdminActivity extends AppCompatActivity {
 

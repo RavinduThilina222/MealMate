@@ -1,4 +1,4 @@
-package com.example.mealmate;
+package com.example.mealmate.admin_activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mealmate.R;
 
 import java.util.ArrayList;
 import java.util.List;

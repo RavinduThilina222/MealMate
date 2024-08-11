@@ -1,4 +1,4 @@
-package com.example.mealmate;
+package com.example.mealmate.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,6 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE MenuItems (" +
                 "Item_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "Category TEXT NOT NULL," +
                 "Name TEXT NOT NULL," +
                 "Description TEXT," +
                 "Price REAL NOT NULL," +

@@ -1,4 +1,4 @@
-package com.example.mealmate;
+package com.example.mealmate.admin_activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,17 +10,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class CustomerManagementActivity extends AppCompatActivity {
-    // Customer Management Activity
+import com.example.mealmate.R;
+
+public class OrderManagementActivity extends AppCompatActivity {
+    // Order Management Activity
     private DrawerLayout drawerLayout;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.customers_management_layout);
+        setContentView(R.layout.order_management_layout);
 
-        drawerLayout = findViewById(R.id.CustomerManagementDrawerLayout);
+        drawerLayout = findViewById(R.id.orderManagementDrawerLayout);
 
         Button btnMenu = findViewById(R.id.BtnMenu);
         btnMenu.setOnClickListener(new View.OnClickListener() {
@@ -34,13 +36,12 @@ public class CustomerManagementActivity extends AppCompatActivity {
             }
         });
 
-
         // Handle other button clicks in the navigation drawer
         findViewById(R.id.btnMenus).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle Menu Management button click
-                Intent intent = new Intent(CustomerManagementActivity.this, MenuManagementActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, MenuManagementActivity.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +50,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Order Management button click
-                Intent intent = new Intent(CustomerManagementActivity.this, OrderManagementActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, OrderManagementActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,16 +59,17 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Customer Management button click
-                Intent intent = new Intent(CustomerManagementActivity.this, CustomerManagementActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, CustomerManagementActivity.class);
                 startActivity(intent);
             }
         });
+
 
         findViewById(R.id.btnNotification).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle Notification Management button click
-                Intent intent = new Intent(CustomerManagementActivity.this, NotificationAdminActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, NotificationAdminActivity.class);
                 startActivity(intent);
             }
         });
@@ -76,7 +78,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Branch Management button click
-                Intent intent = new Intent(CustomerManagementActivity.this, BranchesActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, BranchesActivity.class);
                 startActivity(intent);
             }
         });
@@ -85,7 +87,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Analytics button click
-                Intent intent = new Intent(CustomerManagementActivity.this, AnalyticsActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, AnalyticsActivity.class);
                 startActivity(intent);
             }
         });
@@ -94,25 +96,16 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Promotion button click
-                Intent intent = new Intent(CustomerManagementActivity.this, PromotionActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, PromotionActivity.class);
                 startActivity(intent);
             }
         });
 
+        // Handle Dashboard button click
         findViewById(R.id.btnDashboard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle Dashboard button click
-                Intent intent = new Intent(CustomerManagementActivity.this, AdminDashboardActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.btnLogout).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle Logout button click
-                Intent intent = new Intent(CustomerManagementActivity.this, MainActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, AdminDashboardActivity.class);
                 startActivity(intent);
             }
         });

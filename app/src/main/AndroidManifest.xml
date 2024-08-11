@@ -21,21 +21,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdminDashboardActivity"
+        <activity android:name=".admin_activities.AdminDashboardActivity"
             android:exported="true"/>
-        <activity android:name=".MenuManagementActivity"
+        <activity android:name=".admin_activities.MenuManagementActivity"
             android:exported="true"/>
-        <activity android:name=".OrderManagementActivity"
+        <activity android:name=".admin_activities.OrderManagementActivity"
             android:exported="true"/>
-        <activity android:name=".CustomerManagementActivity"
+        <activity android:name=".admin_activities.CustomerManagementActivity"
             android:exported="true"/>
-        <activity android:name=".BranchesActivity"
+        <activity android:name=".admin_activities.BranchesActivity"
             android:exported="true"/>
-        <activity android:name=".AnalyticsActivity"
+        <activity android:name=".admin_activities.AnalyticsActivity"
             android:exported="true"/>
-        <activity android:name=".NotificationAdminActivity"
+        <activity android:name=".admin_activities.NotificationAdminActivity"
             android:exported="true"/>
-        <activity android:name=".PromotionActivity"
+        <activity android:name=".admin_activities.PromotionActivity"
             android:exported="true"/>
     </application>
 
