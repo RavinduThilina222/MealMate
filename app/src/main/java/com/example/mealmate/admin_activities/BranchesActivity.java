@@ -13,6 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.mealmate.MainActivity;
 import com.example.mealmate.R;
+import com.example.mealmate.database.Branch;
+import com.example.mealmate.database.DatabaseHelper;
 
 public class BranchesActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -52,6 +54,9 @@ public class BranchesActivity extends AppCompatActivity {
                 double branchLatitude = Double.parseDouble(etBranchLatitude.getText().toString().trim());
                 double branchLongitude = Double.parseDouble(etBranchLongitude.getText().toString().trim());
 
+                DatabaseHelper databaseHelper = new DatabaseHelper(BranchesActivity.this);
+                Branch branch = new Branch(databaseHelper);
+                branch.addBranch(branchName, branchAddress, branchLatitude, branchLongitude);
 
             }
         });
@@ -139,5 +144,7 @@ public class BranchesActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
