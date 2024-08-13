@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mealmate.Database.Branch;
+import com.example.mealmate.database.Branch;
 
 import java.util.List;
 
@@ -20,6 +20,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchView
         this.branchList = branchList;
     }
 
+    /** @noinspection ClassEscapesDefinedScope*/
     @NonNull
     @Override
     public BranchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -27,6 +28,7 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchView
         return new BranchViewHolder(view);
     }
 
+    /** @noinspection ClassEscapesDefinedScope*/
     @Override
     public void onBindViewHolder(@NonNull BranchViewHolder holder, int position) {
         Branch branch = branchList.get(position);

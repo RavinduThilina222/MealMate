@@ -1,13 +1,10 @@
-package com.example.mealmate.Database;
+package com.example.mealmate.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.mealmate.Database.DatabaseHelper;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class User {

@@ -1,4 +1,4 @@
-package com.example.mealmate.Database;
+package com.example.mealmate.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

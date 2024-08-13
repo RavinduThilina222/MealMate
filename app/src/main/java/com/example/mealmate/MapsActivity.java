@@ -14,8 +14,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.mealmate.Database.Branch;
-import com.example.mealmate.Database.DatabaseHelper;
+import com.example.mealmate.database.Branch;
+import com.example.mealmate.database.DatabaseHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
