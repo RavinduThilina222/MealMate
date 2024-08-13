@@ -94,7 +94,7 @@
                 android:id="@+id/btnAddBranch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="?attr/colorPrimary"
                 android:text="@string/add_branch"
                 android:textColor="@android:color/white" />
