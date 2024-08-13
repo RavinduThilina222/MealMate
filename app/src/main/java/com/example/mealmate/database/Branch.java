@@ -63,9 +63,14 @@ public class Branch {
 
     public void addBranch(String name, String address, double latitude, double longitude) {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
-        String query = "INSERT INTO ShopBranches (name, address, latitude, longitude) VALUES ('" + name + "', '" + address + "', " + latitude + ", " + longitude + ")";
-        db.execSQL(query);
-        db.close();
+        try {
+            String query = "INSERT INTO Branches (name, address, latitude, longitude) VALUES (?, ?, ?, ?)";
+            db.execSQL(query, new Object[]{name, address, latitude, longitude});
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
     }
 
     @SuppressLint("Range")

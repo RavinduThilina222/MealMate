@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -51,13 +52,32 @@ public class BranchesActivity extends AppCompatActivity {
 
                 String branchName = etBranchName.getText().toString().trim();
                 String branchAddress = etBranchAddress.getText().toString().trim();
-                double branchLatitude = Double.parseDouble(etBranchLatitude.getText().toString().trim());
-                double branchLongitude = Double.parseDouble(etBranchLongitude.getText().toString().trim());
+                String branchLatitudeStr = etBranchLatitude.getText().toString().trim();
+                String branchLongitudeStr = etBranchLongitude.getText().toString().trim();
+
+                if (branchName.isEmpty() || branchAddress.isEmpty() || branchLatitudeStr.isEmpty() || branchLongitudeStr.isEmpty()) {
+                    Toast.makeText(BranchesActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double branchLatitude;
+                double branchLongitude;
+                try {
+                    branchLatitude = Double.parseDouble(branchLatitudeStr);
+                    branchLongitude = Double.parseDouble(branchLongitudeStr);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(BranchesActivity.this, "Invalid latitude or longitude", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 DatabaseHelper databaseHelper = new DatabaseHelper(BranchesActivity.this);
                 Branch branch = new Branch(databaseHelper);
-                branch.addBranch(branchName, branchAddress, branchLatitude, branchLongitude);
-
+                try {
+                    branch.addBranch(branchName, branchAddress, branchLatitude, branchLongitude);
+                    Toast.makeText(BranchesActivity.this, "Branch added successfully", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(BranchesActivity.this, "Error adding branch", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -143,8 +163,6 @@ public class BranchesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
-
-
-
 }
