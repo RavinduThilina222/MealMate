@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -36,6 +37,24 @@ public class BranchesActivity extends AppCompatActivity {
             }
         });
 
+        // Add Branch Button Click Listener
+        Button btnAddBranch = findViewById(R.id.btnAddBranch);
+        btnAddBranch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText etBranchName = findViewById(R.id.etBranchName);
+                EditText etBranchAddress = findViewById(R.id.etBranchAddress);
+                EditText etBranchLatitude = findViewById(R.id.etBranchLatitude);
+                EditText etBranchLongitude = findViewById(R.id.etBranchLongitude);
+
+                String branchName = etBranchName.getText().toString().trim();
+                String branchAddress = etBranchAddress.getText().toString().trim();
+                double branchLatitude = Double.parseDouble(etBranchLatitude.getText().toString().trim());
+                double branchLongitude = Double.parseDouble(etBranchLongitude.getText().toString().trim());
+
+
+            }
+        });
 
         // Handle other button clicks in the navigation drawer
         findViewById(R.id.btnMenus).setOnClickListener(new View.OnClickListener() {
@@ -120,4 +139,5 @@ public class BranchesActivity extends AppCompatActivity {
             }
         });
     }
+
 }
