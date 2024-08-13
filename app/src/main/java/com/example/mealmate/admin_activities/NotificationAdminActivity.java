@@ -20,7 +20,7 @@ public class NotificationAdminActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.notification_admin_layout);
+            setContentView(R.layout.admin_notification_layout);
 
             drawerLayout = findViewById(R.id.notificationAdminDrawerLayout);
 

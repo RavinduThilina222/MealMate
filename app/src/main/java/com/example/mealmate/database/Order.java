@@ -1,4 +1,4 @@
-package com.example.mealmate.Database;
+package com.example.mealmate.database;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @SuppressLint("Recycle")
 public class Order {

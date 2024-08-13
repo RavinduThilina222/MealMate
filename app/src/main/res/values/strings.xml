@@ -23,6 +23,9 @@
     <string name="promotions">Promotions</string>
     <string name="add_food_item">Add Food Item</string>
     <string name="logout">Logout</string>
+    <string name="order">Order</string>
+    <string name="branch_address">Branch Address</string>
+    <string name="branch_name">Branch Name</string>
     <string name="home">Home</string>
     <string name="enter_branch_name">Enter Branch Name</string>
     <string name="enter_branch_address">Enter Branch Address</string>

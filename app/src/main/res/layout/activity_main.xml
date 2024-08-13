@@ -1,4 +1,3 @@
-<!-- res/layout/activity_login.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -34,13 +33,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logoImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginRight="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="75dp"
         android:background="@android:color/white"
         android:elevation="10dp"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="20dp">
+
+        <!-- Logging Topic -->
+        <TextView
+            android:id="@+id/loggingTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="20dp" />
 
         <EditText
             android:id="@+id/etUsername"

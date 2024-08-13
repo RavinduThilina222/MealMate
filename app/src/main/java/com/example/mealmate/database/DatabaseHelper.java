@@ -1,4 +1,4 @@
-package com.example.mealmate.Database;
+package com.example.mealmate.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -145,5 +145,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS PaymentMethods");
         db.execSQL("DROP TABLE IF EXISTS Payments");
         onCreate(db);
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        onUpgrade(db, oldVersion, newVersion);
     }
 }
