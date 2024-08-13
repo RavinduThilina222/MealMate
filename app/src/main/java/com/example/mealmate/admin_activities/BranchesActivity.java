@@ -11,14 +11,21 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mealmate.BranchAdapter;
 import com.example.mealmate.MainActivity;
 import com.example.mealmate.R;
 import com.example.mealmate.database.Branch;
 import com.example.mealmate.database.DatabaseHelper;
 
+import java.util.List;
+
 public class BranchesActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
+    private RecyclerView branchesRecyclerView;
+    private BranchAdapter branchAdapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -78,6 +85,15 @@ public class BranchesActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Toast.makeText(BranchesActivity.this, "Error adding branch", Toast.LENGTH_SHORT).show();
                 }
+
+                // Retrieve branches from the database and set the adapter
+                drawerLayout = findViewById(R.id.branchAdminLayout);
+                branchesRecyclerView = findViewById(R.id.branchesList);
+                branchesRecyclerView.setLayoutManager(new LinearLayoutManager(BranchesActivity.this));
+
+                List<Branch> branchList = branch.getAllBranches();
+                branchAdapter = new BranchAdapter(branchList);
+                branchesRecyclerView.setAdapter(branchAdapter);
             }
         });
 
@@ -163,6 +179,8 @@ public class BranchesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // method for retrieving branches in recycleView called +@id/branchesList
+
 
     }
 }

@@ -8,19 +8,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mealmate.R;
 import com.example.mealmate.database.Branch;
 
 import java.util.List;
 
 public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchViewHolder> {
 
-    private final List<Branch> branchList;
+    private List<Branch> branchList;
 
     public BranchAdapter(List<Branch> branchList) {
         this.branchList = branchList;
     }
 
-    /** @noinspection ClassEscapesDefinedScope*/
     @NonNull
     @Override
     public BranchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -28,12 +28,12 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchView
         return new BranchViewHolder(view);
     }
 
-    /** @noinspection ClassEscapesDefinedScope*/
     @Override
     public void onBindViewHolder(@NonNull BranchViewHolder holder, int position) {
         Branch branch = branchList.get(position);
-        holder.branchName.setText(branch.getName());
-        holder.branchAddress.setText(branch.getAddress());
+        holder.tvBranchName.setText(branch.getName());
+        holder.tvBranchAddress.setText(branch.getAddress());
+        holder.tvBranchCoordinates.setText(String.format("Lat: %s, Lon: %s", branch.getLatitude(), branch.getLongitude()));
     }
 
     @Override
@@ -41,14 +41,14 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchView
         return branchList.size();
     }
 
-    static class BranchViewHolder extends RecyclerView.ViewHolder {
-        TextView branchName;
-        TextView branchAddress;
+    public static class BranchViewHolder extends RecyclerView.ViewHolder {
+        TextView tvBranchName, tvBranchAddress, tvBranchCoordinates;
 
         public BranchViewHolder(@NonNull View itemView) {
             super(itemView);
-            branchName = itemView.findViewById(R.id.branch_name);
-            branchAddress = itemView.findViewById(R.id.branch_address);
+            tvBranchName = itemView.findViewById(R.id.tvBranchName);
+            tvBranchAddress = itemView.findViewById(R.id.tvBranchAddress);
+            tvBranchCoordinates = itemView.findViewById(R.id.tvBranchCoordinates);
         }
     }
 }
