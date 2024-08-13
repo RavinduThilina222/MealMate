@@ -18,65 +18,100 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F0873A"
+            android:paddingVertical="16dp"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:gravity="center_vertical">
 
             <Button
                 android:id="@+id/BtnMenu"
                 android:layout_width="54dp"
                 android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
-                android:gravity="center"
-                android:padding="8dp"
-                app:icon="@drawable/menu_icon" />
+                android:gravity="start"
+                app:icon="@drawable/menu_icon"/>
 
             <TextView
                 android:id="@+id/dashboardText"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif-medium"
-                android:gravity="center"
                 android:text="@string/branches"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <!-- Button Layout for Add New Branch -->
+        <!-- Create new form for adding new branch -->
         <LinearLayout
+            android:id="@+id/addBranchForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/adminNavBar"
-            android:layout_margin="15dp"
-            android:orientation="vertical">
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <Button
-                android:id="@+id/addBranch"
+            <EditText
+                android:id="@+id/etBranchName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/buttonWhiteLight"
-                android:drawableLeft="@drawable/ic_add"
-                android:drawablePadding="8dp"
-                android:gravity="start|center_vertical"
-                android:padding="16dp"
-                android:text="Add New Branch"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:onClick="onAddBranchPressed" />
+                android:layout_marginTop="10dp"
+                android:hint="@string/enter_branch_name"
+                android:inputType="text"
+                android:padding="10dp" />
 
+            <EditText
+                android:id="@+id/etBranchAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/enter_branch_address"
+                android:inputType="text"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/etBranchLatitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/enter_branch_latitude"
+                android:inputType="numberDecimal"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/etBranchLongitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/enter_branch_longitude"
+                android:inputType="numberDecimal"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/btnAddBranch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="?attr/colorPrimary"
+                android:text="@string/add_branch"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <!-- RecyclerView for Showing Branches with Update and Delete Buttons -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/branchRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/addBranch"
-            android:layout_margin="15dp"
-            android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/branch_item" />
 
+
+        <!-- Branches List in the RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/branchesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addBranchForm"
+            android:layout_margin="16dp"
+            android:background="@color/buttonWhiteLight"
+            android:padding="16dp"
+            android:scrollbars="vertical" />
     </RelativeLayout>
 
     <!-- Include the Navigation Drawer -->
@@ -85,5 +120,4 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start" />
-
 </androidx.drawerlayout.widget.DrawerLayout>
