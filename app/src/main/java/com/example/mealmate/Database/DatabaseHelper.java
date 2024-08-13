@@ -146,4 +146,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Payments");
         onCreate(db);
     }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        onUpgrade(db, oldVersion, newVersion);
+    }
 }

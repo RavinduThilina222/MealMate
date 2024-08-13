@@ -11,7 +11,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class User {
-    private DatabaseHelper dbHelper;
+    private final DatabaseHelper dbHelper;
 
     public User(Context context) {
         dbHelper = new DatabaseHelper(context);
