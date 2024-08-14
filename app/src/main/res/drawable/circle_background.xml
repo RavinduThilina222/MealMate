@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Code for the circle background-->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF"/>
+            <stroke android:color="#625D5D" android:width="2dp"/>
+        </shape>
+    </item>
+
+</selector>

@@ -31,7 +31,7 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.FoodIt
         FoodItem foodItem = foodItemList.get(position);
         holder.nameTextView.setText(foodItem.getName());
         holder.priceTextView.setText(String.valueOf(foodItem.getPrice()));
-        holder.imageView.setImageResource(foodItem.getImageResId()); // Set image using resource ID
+        //holder.imageView.setImageResource(foodItem.getImageResId()); // Set image using resource ID
     }
 
     @Override

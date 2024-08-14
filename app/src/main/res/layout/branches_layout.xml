@@ -100,8 +100,6 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-
-
         <!-- Branches List in the RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/branchesList"
@@ -111,8 +109,7 @@
             android:layout_margin="16dp"
             android:background="@color/buttonWhiteLight"
             android:padding="16dp"
-            android:scrollbars="vertical"
-            />
+            android:scrollbars="vertical"/>
     </RelativeLayout>
 
     <!-- Include the Navigation Drawer -->

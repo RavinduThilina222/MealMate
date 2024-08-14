@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mealmate.admin_activities.AdminDashboardActivity;
+import com.example.mealmate.user_activities.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle register logic here
-                Toast.makeText(MainActivity.this, "Register", Toast.LENGTH_SHORT).show();
+                // open user registration activity
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

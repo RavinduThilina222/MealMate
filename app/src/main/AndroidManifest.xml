@@ -47,6 +47,9 @@
             android:exported="true"/>
         <activity android:name=".MapsActivity"
             android:exported="true"/>
+        <activity android:name=".user_activities.RegisterActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

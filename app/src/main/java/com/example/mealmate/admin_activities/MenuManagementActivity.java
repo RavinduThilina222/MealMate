@@ -144,11 +144,11 @@ public class MenuManagementActivity extends AppCompatActivity {
     private void loadFoodItems(String meal) {
         // Fetch food items based on the selected meal
         // For demonstration, we'll use dummy data
-        foodItemList = getDummyFoodItems(meal);
+        //foodItemList = getDummyFoodItems(meal);
         foodItemAdapter = new FoodItemAdapter(foodItemList, this);
         foodItemsRecyclerView.setAdapter(foodItemAdapter);
     }
-
+/*
     private List<FoodItem> getDummyFoodItems(String meal) {
         List<FoodItem> items = new ArrayList<>();
         // Add dummy data based on the meal
@@ -169,5 +169,5 @@ public class MenuManagementActivity extends AppCompatActivity {
             items.add(new FoodItem("Cake", 4.99, R.drawable.cake));
         }
         return items;
-    }
+    }*/
 }

@@ -7,4 +7,6 @@
     <color name="buttonWhitePrimary">#FFFFFF</color>
     <color name="buttonWhiteLight">#F5F5F5</color>
     <color name="buttonWhiteDark">#E0E0E0</color>
+    <color name="colorHint">#857F7E</color>
+    <color name="colorAccent">#FF5722</color>
 </resources>

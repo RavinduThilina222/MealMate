@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/adminNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0873A"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/BtnMenu"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="start"
+            app:icon="@drawable/menu_icon"/>
+
+        <TextView
+            android:id="@+id/dashboardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:padding="16dp"
+            android:text="@string/order"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+
+    <!-- Vertical Navigation Bar >
+    <include
+        android:id="@+id/userNavBar"
+        layout="@layout/user_dashboard_navigation_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

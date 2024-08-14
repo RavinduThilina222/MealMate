@@ -40,4 +40,11 @@
             <item>Desserts</item>
         </string-array>
 
+    <!--String Array for gender-->
+    <string-array name="gender_array">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
 </resources>
