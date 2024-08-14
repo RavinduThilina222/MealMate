@@ -1,54 +1,36 @@
 package com.example.mealmate.admin_activities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mealmate.R;
+import com.example.mealmate.database.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuManagementActivity extends AppCompatActivity {
 
-    private DrawerLayout drawerLayout;
     private RecyclerView foodItemsRecyclerView;
-    private FoodItemAdapter foodItemAdapter;
-    private List<FoodItem> foodItemList;
-    private Spinner mealSpinner;
+    private DatabaseHelper databaseHelper;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_management_layout);
 
-        drawerLayout = findViewById(R.id.menuManagementDrawerLayout);
-        mealSpinner = findViewById(R.id.mealSpinner);
+        DrawerLayout drawerLayout = findViewById(R.id.menuManagementDrawerLayout);
+        Spinner mealSpinner = findViewById(R.id.mealSpinner);
         foodItemsRecyclerView = findViewById(R.id.foodItemsRecyclerView);
-
-        foodItemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        Button btnMenu = findViewById(R.id.BtnMenu);
-        btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
-            }
-        });
+        Button addFoodItemButton = findViewById(R.id.addFoodItemButton);
 
         // Handle spinner selection
         mealSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -66,6 +48,15 @@ public class MenuManagementActivity extends AppCompatActivity {
 
         // Initialize with default selection
         loadFoodItems(mealSpinner.getSelectedItem().toString());
+
+        // Handle Add Food Item button click
+        addFoodItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuManagementActivity.this, AddFoodItemActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Handle other button clicks in the navigation drawer
         findViewById(R.id.btnMenus).setOnClickListener(new View.OnClickListener() {
@@ -144,8 +135,8 @@ public class MenuManagementActivity extends AppCompatActivity {
     private void loadFoodItems(String meal) {
         // Fetch food items based on the selected meal
         // For demonstration, we'll use dummy data
-        foodItemList = getDummyFoodItems(meal);
-        foodItemAdapter = new FoodItemAdapter(foodItemList, this);
+        List<FoodItem> foodItemList = getDummyFoodItems(meal);
+        FoodItemAdapter foodItemAdapter = new FoodItemAdapter(foodItemList, this);
         foodItemsRecyclerView.setAdapter(foodItemAdapter);
     }
 
@@ -161,7 +152,7 @@ public class MenuManagementActivity extends AppCompatActivity {
         } else if ("Dinner".equals(meal)) {
             items.add(new FoodItem("Steak", 15.99, R.drawable.steak));
             items.add(new FoodItem("Pasta", 12.99, R.drawable.pasta));
-        } else if ("Soft Drinks".equals(meal)) {
+        } else if ("Drinks".equals(meal)) { // Corrected category name
             items.add(new FoodItem("Coke", 1.99, R.drawable.coke));
             items.add(new FoodItem("Pepsi", 1.99, R.drawable.pepsi));
         } else if ("Desserts".equals(meal)) {

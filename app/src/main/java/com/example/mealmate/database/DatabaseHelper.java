@@ -1,5 +1,6 @@
 package com.example.mealmate.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -150,5 +151,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public boolean insertFoodItem(String category, String name, String description, double price, boolean availability, byte[] image) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Category", category);
+        contentValues.put("Name", name);
+        contentValues.put("Description", description);
+        contentValues.put("Price", price);
+        contentValues.put("Availability", availability ? 1 : 0);
+        contentValues.put("Image", image);
+
+        long result = db.insert("MenuItems", null, contentValues);
+        return result != -1;
     }
 }

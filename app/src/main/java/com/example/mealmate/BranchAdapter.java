@@ -33,7 +33,6 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchView
         Branch branch = branchList.get(position);
         holder.tvBranchName.setText(branch.getName());
         holder.tvBranchAddress.setText(branch.getAddress());
-        holder.tvBranchCoordinates.setText(String.format("Lat: %s, Lon: %s", branch.getLatitude(), branch.getLongitude()));
     }
 
     @Override
@@ -42,13 +41,12 @@ public class BranchAdapter extends RecyclerView.Adapter<BranchAdapter.BranchView
     }
 
     public static class BranchViewHolder extends RecyclerView.ViewHolder {
-        TextView tvBranchName, tvBranchAddress, tvBranchCoordinates;
+        TextView tvBranchName, tvBranchAddress;
 
         public BranchViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvBranchName = itemView.findViewById(R.id.tvBranchName);
-            tvBranchAddress = itemView.findViewById(R.id.tvBranchAddress);
-            tvBranchCoordinates = itemView.findViewById(R.id.tvBranchCoordinates);
+            tvBranchName = itemView.findViewById(R.id.branch_name);
+            tvBranchAddress = itemView.findViewById(R.id.branch_address);
         }
     }
 }
