@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".admin_activities.AddFoodItemActivity">
+
+    <TextView
+        android:id="@+id/tvTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Add Food Item"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/spCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_below="@id/tvTopic"
+        android:layout_margin="7dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:minHeight="48dp"
+        android:layout_below="@id/spCategory"
+        android:layout_margin="1dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:layout_below="@id/etName"
+        android:layout_margin="1dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:layout_below="@id/etDescription"
+        android:layout_margin="1dp"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:id="@+id/cbAvailability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Available"
+        android:layout_below="@id/etPrice"
+        android:layout_margin="1dp"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/ivFoodImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="Food Image"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/cbAvailability"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_color"
+        android:text="Select Image"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/ivFoodImage"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnAddFoodItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="Add Food Item"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/btnSelectImage"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
