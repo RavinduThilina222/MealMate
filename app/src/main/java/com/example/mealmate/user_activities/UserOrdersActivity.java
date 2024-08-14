@@ -10,12 +10,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.mealmate.R;
 
-public class HomeActivity extends AppCompatActivity {
-
+public class UserOrdersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_homepage_layout);
+        setContentView(R.layout.user_orders_layout);
 
         Button BtnMenu = findViewById(R.id.BtnMenu);
         DrawerLayout drawerLayout = findViewById(R.id.adminNavBarLayout);
@@ -31,7 +30,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }
+

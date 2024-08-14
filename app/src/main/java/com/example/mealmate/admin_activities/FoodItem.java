@@ -17,6 +17,12 @@ public class FoodItem {
         this.image = image;
     }
 
+    public FoodItem(String name, double price,int image) {
+        this.name = name;
+        this.price = price;
+        this.itemId = image;
+    }
+
     public int getItemId() {
         return itemId;
     }
