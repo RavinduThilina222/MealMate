@@ -47,4 +47,10 @@
         <item>Female</item>
     </string-array>
 
+    <string-array name="admin_roles">
+        <item>Manager</item>
+        <item>Assistant Manager</item>
+        <item>Store Manager</item>
+        <item>Delivery Person</item>
+    </string-array>
 </resources>

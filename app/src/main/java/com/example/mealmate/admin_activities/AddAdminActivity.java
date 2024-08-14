@@ -3,8 +3,10 @@ package com.example.mealmate.admin_activities;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +18,6 @@ import com.example.mealmate.database.User;
 public class AddAdminActivity extends AppCompatActivity {
 
     private EditText etUsername, etEmail, etRole, etPassword;
-    private Button btnAddAdmin;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -26,9 +27,14 @@ public class AddAdminActivity extends AppCompatActivity {
 
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
-        etRole = findViewById(R.id.etRole);
+        Spinner spRole = findViewById(R.id.spRole);
         etPassword = findViewById(R.id.etPassword);
-        btnAddAdmin = findViewById(R.id.btnAddAdmin);
+        Button btnAddAdmin = findViewById(R.id.btnAddAdmin);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.admin_roles, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spRole.setAdapter(adapter);
 
         btnAddAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
