@@ -79,4 +79,13 @@ public class User {
         db.close();
         return rowsAffected;
     }
+
+    public boolean checkUserCredentials(String username, String password) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("Users", null, "Username=? AND Password=?", new String[]{username, password}, null, null, null);
+        boolean isValid = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return isValid;
+    }
 }

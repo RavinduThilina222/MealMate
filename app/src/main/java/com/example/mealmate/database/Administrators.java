@@ -14,16 +14,15 @@ public class Administrators {
         dbHelper = new DatabaseHelper(context);
     }
 
-    public long addAdministrator(String username, String email, String role, String password) {
+    public void addAdministrator(String username, String email, String role, String password) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Username", username);
         values.put("Email", email);
         values.put("Role", role);
         values.put("Password", password);
-        long id = db.insert("Administrators", null, values);
+        db.insert("Administrators", null, values);
         db.close();
-        return id;
     }
 
     public int updateAdministrator(long adminId, String username, String email, String role, String password) {
@@ -74,6 +73,20 @@ public class Administrators {
             } while (cursor.moveToNext());
         }
         return allAdministrators;
+    }
+
+    // Administrators.java
+    public boolean checkAdminCredentials(String username, String password) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("Administrators",
+                new String[]{"Admin_ID"},
+                "Username=? AND Password=?",
+                new String[]{username, password},
+                null, null, null);
+        boolean isValid = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return isValid;
     }
 
 }

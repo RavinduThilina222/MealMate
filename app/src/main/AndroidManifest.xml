@@ -55,6 +55,12 @@
 
         <activity android:name=".user_activities.UserOrdersActivity"
             android:exported="true"/>
+
+        <activity android:name=".admin_activities.AddAdminActivity"
+            android:exported="true"/>
+
+        <activity android:name=".admin_activities.AddFoodItemActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

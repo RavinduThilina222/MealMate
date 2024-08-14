@@ -81,17 +81,6 @@
 
 
         <!-- Notification Item -->
-        <Button
-            android:id="@+id/btnNotification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="start|center_vertical"
-            android:text="Notification"
-            android:textColor="@android:color/white"
-            app:icon="@drawable/ic_notification"
-            android:drawablePadding="8dp"
-            android:padding="8dp" />
 
         <!--logout button-->
         <Button

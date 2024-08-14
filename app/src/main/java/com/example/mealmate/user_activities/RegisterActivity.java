@@ -5,8 +5,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.mealmate.R;
+import com.example.mealmate.database.User;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -69,13 +71,26 @@ public class RegisterActivity extends AppCompatActivity {
         String addressInput = address.getText().toString().trim();
         String birthdayInput = birthday.getText().toString().trim();
         String genderInput = gender.getSelectedItem().toString();
+        // Byte[] profilePictureInput = profilePicture.ToByteArray(); // Handle profile picture conversion
 
-        // Validate input and handle registration logic
-        // add user in User table
+        // Validate input
+        if (validateInput(usernameInput, emailInput, phoneNoInput, passwordInput, confirmPasswordInput, addressInput, birthdayInput, genderInput)) {
+            // Add user to database
+            addUser(usernameInput, emailInput, phoneNoInput, passwordInput, genderInput, addressInput, birthdayInput, "user", 0.0, 0.0, null);
+            Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean validateInput(String username, String email, String phoneNo, String password, String confirmPassword, String address, String birthday, String gender) {
         // Implement validation logic
         return true;
+    }
+
+    // Method to add user to database
+    private void addUser(String username, String email, String phoneNo, String password, String gender, String address, String birthday, String userLevel, double latitude, double longitude, byte[] profilePicture) {
+        User user = new User(this);
+        user.addUser(username, email, phoneNo, password, gender, address, birthday, userLevel, latitude, longitude, profilePicture);
     }
 }
