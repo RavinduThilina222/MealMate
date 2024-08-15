@@ -128,7 +128,7 @@ public class MenuManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Promotion button click
-                Intent intent = new Intent(MenuManagementActivity.this, PromotionActivity.class);
+                Intent intent = new Intent(MenuManagementActivity.this, AddPromotionActivity.class);
                 startActivity(intent);
             }
         });

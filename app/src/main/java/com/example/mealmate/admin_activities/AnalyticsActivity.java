@@ -96,7 +96,7 @@ public class AnalyticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Promotion button click
-                Intent intent = new Intent(AnalyticsActivity.this, PromotionActivity.class);
+                Intent intent = new Intent(AnalyticsActivity.this, AddPromotionActivity.class);
                 startActivity(intent);
             }
         });

@@ -96,7 +96,7 @@ public class OrderManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Promotion button click
-                Intent intent = new Intent(OrderManagementActivity.this, PromotionActivity.class);
+                Intent intent = new Intent(OrderManagementActivity.this, AddPromotionActivity.class);
                 startActivity(intent);
             }
         });

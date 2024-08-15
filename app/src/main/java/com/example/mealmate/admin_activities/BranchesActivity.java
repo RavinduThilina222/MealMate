@@ -156,7 +156,7 @@ public class BranchesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Promotion button click
-                Intent intent = new Intent(BranchesActivity.this, PromotionActivity.class);
+                Intent intent = new Intent(BranchesActivity.this, AddPromotionActivity.class);
                 startActivity(intent);
             }
         });

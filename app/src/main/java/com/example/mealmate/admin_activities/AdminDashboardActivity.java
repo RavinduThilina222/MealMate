@@ -96,7 +96,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Promotion button click
-                Intent intent = new Intent(AdminDashboardActivity.this, PromotionActivity.class);
+                Intent intent = new Intent(AdminDashboardActivity.this, AddPromotionActivity.class);
                 startActivity(intent);
             }
         });

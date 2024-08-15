@@ -65,7 +65,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE Orders (" +
                 "Order_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "User_ID INTEGER NOT NULL," +
-                "Branch_ID INTEGER NOT NULL," +
                 "Favorite_Order TEXT NOT NULL DEFAULT 'No'," +
                 "Net_Amount REAL NOT NULL," +
                 "Discount REAL NOT NULL DEFAULT '0'," +
@@ -75,8 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Latitude REAL NOT NULL," +
                 "Longitude REAL NOT NULL," +
                 "Status TEXT NOT NULL DEFAULT 'Pending'," +
-                "FOREIGN KEY (User_ID) REFERENCES Users(User_ID)," +
-                "FOREIGN KEY (Branch_ID) REFERENCES Branches(Branch_ID)" +
+                "FOREIGN KEY (User_ID) REFERENCES Users(User_ID)" +
                 ");");
 
         db.execSQL("CREATE TABLE OrderDetails (" +
@@ -134,12 +132,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID)," +
                 "FOREIGN KEY (Method_ID) REFERENCES PaymentMethods(Method_ID)" +
                 ");");
-
-        db.execSQL("INSERT INTO PaymentMethods (Method_Name) VALUES ('Cash');");
-        db.execSQL("INSERT INTO PaymentMethods (Method_Name) VALUES ('Card');");
-
-
-
     }
 
     @Override
@@ -175,6 +167,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert("MenuItems", null, contentValues);
         return result != -1;
+    }
+
+    public void addPromotion(String name, String description, String promoCode, int discountPercentage, String startDate, String startTime, String endDate, String endTime) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("description", description);
+        values.put("Code", promoCode);
+        values.put("Discount_Percentage", discountPercentage);
+        values.put("Valid_From", startDate + " " + startTime);
+        values.put("Valid_Until", endDate + " " + endTime);
+        db.insert("Promotions", null, values);
+        db.close();
     }
 
     public boolean updateFoodItem(FoodItem foodItem) {
