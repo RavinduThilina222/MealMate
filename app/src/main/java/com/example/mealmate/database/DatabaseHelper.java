@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.mealmate.admin_activities.FoodItem;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MealMate.db";
     private static final int DATABASE_VERSION = 1;
@@ -63,6 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE Orders (" +
                 "Order_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "User_ID INTEGER NOT NULL," +
+                "Branch_ID INTEGER NOT NULL," +
                 "Favorite_Order TEXT NOT NULL DEFAULT 'No'," +
                 "Net_Amount REAL NOT NULL," +
                 "Discount REAL NOT NULL DEFAULT '0'," +
@@ -72,7 +75,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Latitude REAL NOT NULL," +
                 "Longitude REAL NOT NULL," +
                 "Status TEXT NOT NULL DEFAULT 'Pending'," +
-                "FOREIGN KEY (User_ID) REFERENCES Users(User_ID)" +
+                "FOREIGN KEY (User_ID) REFERENCES Users(User_ID)," +
+                "FOREIGN KEY (Branch_ID) REFERENCES Branches(Branch_ID)" +
                 ");");
 
         db.execSQL("CREATE TABLE OrderDetails (" +
@@ -130,6 +134,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID)," +
                 "FOREIGN KEY (Method_ID) REFERENCES PaymentMethods(Method_ID)" +
                 ");");
+
+        db.execSQL("INSERT INTO PaymentMethods (Method_Name) VALUES ('Cash');");
+        db.execSQL("INSERT INTO PaymentMethods (Method_Name) VALUES ('Card');");
+
+
+
     }
 
     @Override
@@ -166,4 +176,53 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.insert("MenuItems", null, contentValues);
         return result != -1;
     }
+
+    public boolean updateFoodItem(FoodItem foodItem) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Name", foodItem.getName());
+        contentValues.put("Description", foodItem.getDescription());
+        contentValues.put("Price", foodItem.getPrice());
+        contentValues.put("Image", foodItem.getImage());
+
+        int result = db.update("MenuItems", contentValues, "Item_ID=?", new String[]{String.valueOf(foodItem.getId())});
+        return result > 0;
+    }
+
+    public boolean deleteFoodItem(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("MenuItems", "Item_ID = ?", new String[]{String.valueOf(id)});
+        return result > 0;
+    }
+
+    public boolean addOrder(FoodItem foodItem, int quantity) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues orderValues = new ContentValues();
+        orderValues.put("User_ID", 1); // Assuming a user ID of 1 for simplicity
+        orderValues.put("Net_Amount", foodItem.getPrice() * quantity);
+        orderValues.put("Total_Price", foodItem.getPrice() * quantity);
+        long orderId = db.insert("Orders", null, orderValues);
+
+        if (orderId == -1) {
+            return false;
+        }
+
+        ContentValues orderDetailValues = new ContentValues();
+        orderDetailValues.put("Order_ID", orderId);
+        orderDetailValues.put("Item_ID", foodItem.getId());
+        orderDetailValues.put("Quantity", quantity);
+        long orderDetailId = db.insert("OrderDetails", null, orderDetailValues);
+
+        return orderDetailId != -1;
+    }
+
+    public boolean addFavoriteItem(int itemId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues favoriteValues = new ContentValues();
+        favoriteValues.put("User_ID", 1); // Assuming a user ID of 1 for simplicity
+        favoriteValues.put("Item_ID", itemId);
+        long result = db.insert("FavoriteItems", null, favoriteValues);
+        return result != -1;
+    }
+
 }

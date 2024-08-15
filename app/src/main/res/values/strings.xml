@@ -32,6 +32,8 @@
     <string name="add_branch">Add Branch</string>
     <string name="enter_branch_latitude">Enter the latitude</string>
     <string name="enter_branch_longitude">enter the longitute</string>
+    <string name="update_food_item">Update Food Item</string>
+    <string name="delete_food_item">Delete Food Item</string>
     <string-array name="meals_array">
             <item>Breakfast</item>
             <item>Lunch</item>

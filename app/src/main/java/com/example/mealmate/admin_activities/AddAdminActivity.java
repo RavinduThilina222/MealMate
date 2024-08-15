@@ -17,7 +17,8 @@ import com.example.mealmate.database.User;
 
 public class AddAdminActivity extends AppCompatActivity {
 
-    private EditText etUsername, etEmail, etRole, etPassword;
+    private EditText etUsername, etEmail, etPassword;
+    Spinner spRole;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -27,7 +28,7 @@ public class AddAdminActivity extends AppCompatActivity {
 
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
-        Spinner spRole = findViewById(R.id.spRole);
+        spRole = findViewById(R.id.spRole);
         etPassword = findViewById(R.id.etPassword);
         Button btnAddAdmin = findViewById(R.id.btnAddAdmin);
 
@@ -47,7 +48,7 @@ public class AddAdminActivity extends AppCompatActivity {
     private void handleAddAdmin() {
         String username = etUsername.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
-        String role = etRole.getText().toString().trim();
+        String role = spRole.getSelectedItem().toString();
         String password = etPassword.getText().toString().trim();
 
         if (validateInput(username, email, role, password)) {

@@ -1,7 +1,10 @@
 package com.example.mealmate.admin_activities;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -9,6 +12,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mealmate.R;
@@ -22,15 +26,22 @@ public class MenuManagementActivity extends AppCompatActivity {
     private RecyclerView foodItemsRecyclerView;
     private DatabaseHelper databaseHelper;
 
+    // MenuManagementActivity.java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_management_layout);
 
+        // Initialize DatabaseHelper
+        databaseHelper = new DatabaseHelper(this);
+
         DrawerLayout drawerLayout = findViewById(R.id.menuManagementDrawerLayout);
         Spinner mealSpinner = findViewById(R.id.mealSpinner);
         foodItemsRecyclerView = findViewById(R.id.foodItemsRecyclerView);
         Button addFoodItemButton = findViewById(R.id.addFoodItemButton);
+
+        // Attach LayoutManager to RecyclerView
+        foodItemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Handle spinner selection
         mealSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -42,7 +53,7 @@ public class MenuManagementActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Do nothing
+                // Toast Message to select a meal in the spinner
             }
         });
 
@@ -132,33 +143,37 @@ public class MenuManagementActivity extends AppCompatActivity {
         });
     }
 
+    // MenuManagementActivity.java
     private void loadFoodItems(String meal) {
-        // Fetch food items based on the selected meal
-        // For demonstration, we'll use dummy data
-        List<FoodItem> foodItemList = getDummyFoodItems(meal);
+        List<FoodItem> foodItemList = getFoodItemsByCategory(meal);
         FoodItemAdapter foodItemAdapter = new FoodItemAdapter(foodItemList, this);
         foodItemsRecyclerView.setAdapter(foodItemAdapter);
     }
 
-    private List<FoodItem> getDummyFoodItems(String meal) {
+    // MenuManagementActivity.java
+    private List<FoodItem> getFoodItemsByCategory(String meal) {
         List<FoodItem> items = new ArrayList<>();
-        // Add dummy data based on the meal
-        if ("Breakfast".equals(meal)) {
-            items.add(new FoodItem("Pancakes", 5.99, R.drawable.pancakes));
-            items.add(new FoodItem("Omelette", 6.99, R.drawable.omelette));
-        } else if ("Lunch".equals(meal)) {
-            items.add(new FoodItem("Burger", 8.99, R.drawable.burger));
-            items.add(new FoodItem("Salad", 7.99, R.drawable.salad));
-        } else if ("Dinner".equals(meal)) {
-            items.add(new FoodItem("Steak", 15.99, R.drawable.steak));
-            items.add(new FoodItem("Pasta", 12.99, R.drawable.pasta));
-        } else if ("Drinks".equals(meal)) { // Corrected category name
-            items.add(new FoodItem("Coke", 1.99, R.drawable.coke));
-            items.add(new FoodItem("Pepsi", 1.99, R.drawable.pepsi));
-        } else if ("Desserts".equals(meal)) {
-            items.add(new FoodItem("Ice Cream", 3.99, R.drawable.ice_cream));
-            items.add(new FoodItem("Cake", 4.99, R.drawable.cake));
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.query("MenuItems",
+                new String[]{"Name", "Price", "Image"},
+                "Category=?",
+                new String[]{meal},
+                null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String name = cursor.getString(cursor.getColumnIndexOrThrow("Name"));
+                double price = cursor.getDouble(cursor.getColumnIndexOrThrow("Price"));
+                byte[] image = cursor.getBlob(cursor.getColumnIndexOrThrow("Image"));
+                items.add(new FoodItem(name, price, image));
+            } while (cursor.moveToNext());
+        } else {
+            // Log if no items are found
+            Log.d("MenuManagementActivity", "No items found for category: " + meal);
         }
+
+        cursor.close();
+        db.close();
         return items;
     }
 }

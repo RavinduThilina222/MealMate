@@ -69,6 +69,15 @@ public class MenuItem {
         return rowsAffected;
     }
 
+    public String getDiscription(int itemID) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.query("MenuItems", new String[]{"Description"}, "Item_ID=?", new String[]{String.valueOf(itemID)}, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor.getString(cursor.getColumnIndexOrThrow("Description"));
+    }
+
 
 
 }

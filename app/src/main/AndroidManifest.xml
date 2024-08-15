@@ -61,6 +61,10 @@
 
         <activity android:name=".admin_activities.AddFoodItemActivity"
             android:exported="true"/>
+
+        <activity android:name=".admin_activities.UpdateFoodItemActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

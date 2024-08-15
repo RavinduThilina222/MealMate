@@ -1,42 +1,39 @@
+// FoodItem.java
 package com.example.mealmate.admin_activities;
 
-public class FoodItem {
-    private int itemId;
-    private String name;
-    private String description;
-    private double price;
-    private boolean availability;
-    private byte[] image;
+import java.io.Serializable;
 
-    public FoodItem(int itemId, String name, String description, double price, boolean availability, byte[] image) {
-        this.itemId = itemId;
+public class FoodItem implements Serializable {
+    private String name;
+    private double price;
+    private byte[] image;
+    private String description;
+    private int id;
+
+    public FoodItem(String name, double price, byte[] image) {
         this.name = name;
-        this.description = description;
         this.price = price;
-        this.availability = availability;
         this.image = image;
     }
 
-    public FoodItem(String name, double price,int image) {
-        this.name = name;
-        this.price = price;
-        this.itemId = image;
+    public int getId() {
+        return id;
     }
 
-    public int getItemId() {
-        return itemId;
-    }
-
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public double getPrice() {
+        return price;
+    }
+
+    public byte[] getImage() {
+        return image;
     }
 
     public String getDescription() {
@@ -47,24 +44,12 @@ public class FoodItem {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public boolean isAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
-    }
-
-    public byte[] getImage() {
-        return image;
     }
 
     public void setImage(byte[] image) {
