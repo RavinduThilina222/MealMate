@@ -1,5 +1,6 @@
 <!-- src/main/res/layout/food_item_card_user.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/foodItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -62,10 +63,11 @@
 
         <ImageButton
             android:id="@+id/btnMinus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_minus"
-            android:contentDescription="Minus" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Minus"
+            android:src="@drawable/ic_minus"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/tvItemCount"
@@ -77,17 +79,17 @@
 
         <ImageButton
             android:id="@+id/btnPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_plus"
-            android:contentDescription="Plus" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Plus"
+            android:src="@drawable/ic_plus"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/btnAddToOrder"
-            android:layout_width="241dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="100dp"
-            android:text="Add to Order" />
+            android:text="Add to Order"
+            android:layout_marginLeft="150dp"/>
     </LinearLayout>
 </LinearLayout>

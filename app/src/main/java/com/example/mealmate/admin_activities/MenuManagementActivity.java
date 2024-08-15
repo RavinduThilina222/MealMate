@@ -1,5 +1,7 @@
+// MenuManagementActivity.java
 package com.example.mealmate.admin_activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,7 +28,6 @@ public class MenuManagementActivity extends AppCompatActivity {
     private RecyclerView foodItemsRecyclerView;
     private DatabaseHelper databaseHelper;
 
-    // MenuManagementActivity.java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,37 +144,63 @@ public class MenuManagementActivity extends AppCompatActivity {
         });
     }
 
-    // MenuManagementActivity.java
     private void loadFoodItems(String meal) {
-        List<FoodItem> foodItemList = getFoodItemsByCategory(meal);
+        List<FoodItem> foodItemList = getFoodItemsByCategoryAdmin(meal);
         FoodItemAdapter foodItemAdapter = new FoodItemAdapter(foodItemList, this);
         foodItemsRecyclerView.setAdapter(foodItemAdapter);
     }
 
-    // MenuManagementActivity.java
-    private List<FoodItem> getFoodItemsByCategory(String meal) {
+    private List<FoodItem> getFoodItemsByCategoryUser(String meal) {
         List<FoodItem> items = new ArrayList<>();
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Cursor cursor = db.query("MenuItems",
-                new String[]{"Name", "Price", "Image"},
+                new String[]{"Item_ID", "Name", "Description", "Price", "Availability", "Image"},
                 "Category=?",
                 new String[]{meal},
                 null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow("Item_ID"));
                 String name = cursor.getString(cursor.getColumnIndexOrThrow("Name"));
+                String description = cursor.getString(cursor.getColumnIndexOrThrow("Description"));
                 double price = cursor.getDouble(cursor.getColumnIndexOrThrow("Price"));
+                boolean availability = cursor.getInt(cursor.getColumnIndexOrThrow("Availability")) == 1;
                 byte[] image = cursor.getBlob(cursor.getColumnIndexOrThrow("Image"));
-                items.add(new FoodItem(name, price, image));
+                items.add(new FoodItem(id, name, description, description, price, availability, image));
             } while (cursor.moveToNext());
         } else {
-            // Log if no items are found
             Log.d("MenuManagementActivity", "No items found for category: " + meal);
         }
 
         cursor.close();
         db.close();
+        return items;
+    }
+
+    @SuppressLint("Range")
+    private List<FoodItem> getFoodItemsByCategoryAdmin(String meal) {
+        List<FoodItem> items = new ArrayList<>();
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.query("MenuItems",
+                new String[]{"Item_ID", "Category", "Name", "Description", "Price", "Availability", "Image"},
+                "Category=?",
+                new String[]{meal},
+                null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndex("Item_ID"));
+                String category = cursor.getString(cursor.getColumnIndex("Category"));
+                String name = cursor.getString(cursor.getColumnIndex("Name"));
+                String description = cursor.getString(cursor.getColumnIndex("Description"));
+                double price = cursor.getDouble(cursor.getColumnIndex("Price"));
+                boolean availability = cursor.getInt(cursor.getColumnIndex("Availability")) == 1;
+                byte[] image = cursor.getBlob(cursor.getColumnIndex("Image"));
+                items.add(new FoodItem(id, category, name, description, price, availability, image));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
         return items;
     }
 }

@@ -9,12 +9,19 @@ public class FoodItem implements Serializable {
     private byte[] image;
     private String description;
     private int id;
+    private String category;
+    private boolean availability;
 
-    public FoodItem(String name, double price, byte[] image) {
+    public FoodItem(int id, String category, String name, String description, double price, boolean availability, byte[] image) {
+        this.id = id;
+        this.category = category;
         this.name = name;
+        this.description = this.description;
         this.price = price;
+        this.availability = availability;
         this.image = image;
     }
+
 
     public int getId() {
         return id;
@@ -55,4 +62,21 @@ public class FoodItem implements Serializable {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean isAvailable() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
 }
