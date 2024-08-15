@@ -1,97 +1,102 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".admin_activities.AddPromotionActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:text="Add Promotion"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etPromotionName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Promotion Name"
-        android:layout_margin="16dp"
-        android:layout_below="@id/tvTitle"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Add Promotion"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/etPromotionDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Promotion Description"
-        android:layout_margin="16dp"
-        android:layout_below="@id/etPromotionName"
-        android:layout_centerHorizontal="true"/>
+        <EditText
+            android:id="@+id/etPromotionName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Promotion Name"
+            android:layout_margin="16dp"
+            android:layout_below="@id/tvTitle"
+            android:layout_centerHorizontal="true"/>
 
-    <EditText
-        android:id="@+id/etPromoCode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Promo Code"
-        android:layout_margin="16dp"
-        android:layout_below="@id/etPromotionDescription"
-        android:layout_centerHorizontal="true"/>
+        <EditText
+            android:id="@+id/etPromotionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Promotion Description"
+            android:layout_margin="16dp"
+            android:layout_below="@id/etPromotionName"
+            android:layout_centerHorizontal="true"/>
 
-    <EditText
-        android:id="@+id/etDiscountPercentage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Discount Percentage"
-        android:inputType="number"
-        android:layout_margin="16dp"
-        android:layout_below="@id/etPromoCode"
-        android:layout_centerHorizontal="true"/>
+        <EditText
+            android:id="@+id/etPromoCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Promo Code"
+            android:layout_margin="16dp"
+            android:layout_below="@id/etPromotionDescription"
+            android:layout_centerHorizontal="true"/>
 
-    <DatePicker
-        android:id="@+id/dpStartDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etDiscountPercentage"
-        android:layout_margin="16dp"
-        android:layout_centerHorizontal="true"/>
+        <EditText
+            android:id="@+id/etDiscountPercentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Discount Percentage"
+            android:inputType="number"
+            android:layout_margin="16dp"
+            android:layout_below="@id/etPromoCode"
+            android:layout_centerHorizontal="true"/>
 
-    <TimePicker
-        android:id="@+id/tpStartTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dpStartDate"
-        android:layout_margin="16dp"
-        android:layout_marginTop="-268dp"
-        android:layout_marginBottom="16dp" />
+        <DatePicker
+            android:id="@+id/dpStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etDiscountPercentage"
+            android:layout_margin="16dp"
+            android:layout_centerHorizontal="true"/>
 
-    <DatePicker
-        android:id="@+id/dpEndDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tpStartTime"
-        android:layout_margin="16dp"
-        android:layout_centerHorizontal="true"/>
+        <TimePicker
+            android:id="@+id/tpStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dpStartDate"
+            android:layout_margin="16dp"
+            android:layout_marginTop="-268dp"
+            android:layout_marginBottom="16dp" />
 
-    <TimePicker
-        android:id="@+id/tpEndTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dpEndDate"
-        android:layout_margin="16dp"
-        android:layout_centerHorizontal="true"/>
+        <DatePicker
+            android:id="@+id/dpEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tpStartTime"
+            android:layout_margin="16dp"
+            android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:id="@+id/btnAddPromotion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Promotion"
-        android:layout_margin="16dp"
-        android:layout_below="@id/tpEndTime"
-        android:layout_centerHorizontal="true"/>
-</RelativeLayout>
+        <TimePicker
+            android:id="@+id/tpEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dpEndDate"
+            android:layout_margin="16dp"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btnAddPromotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Promotion"
+            android:layout_margin="16dp"
+            android:layout_below="@id/tpEndTime"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</ScrollView>
