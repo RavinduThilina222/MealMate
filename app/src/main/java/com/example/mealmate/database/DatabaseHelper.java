@@ -1,11 +1,16 @@
 package com.example.mealmate.database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.mealmate.admin_activities.FoodItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MealMate.db";
@@ -91,6 +96,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE Promotions (" +
                 "Promo_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "Name TEXT NOT NULL," +
+                "Description TEXT NOT NULL," +
                 "Code TEXT UNIQUE NOT NULL," +
                 "Discount_Percentage INTEGER NOT NULL," +
                 "Valid_From DATETIME NOT NULL," +
@@ -223,6 +230,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         favoriteValues.put("Item_ID", itemId);
         long result = db.insert("FavoriteItems", null, favoriteValues);
         return result != -1;
+    }
+
+    public void addPromotion(String name, String description, String promoCode, int discountPercentage, String startDate, String startTime, String endDate, String endTime) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("description", description);
+        values.put("Code", promoCode);
+        values.put("Discount_Percentage", discountPercentage);
+        values.put("Valid_From", startDate + " " + startTime);
+        values.put("Valid_Until", endDate + " " + endTime);
+        db.insert("Promotions", null, values);
+        db.close();
+    }
+
+    @SuppressLint("Range")
+    public List<FoodItem> getAllFoodItems() {
+        List<FoodItem> foodItemList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM MenuItems", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndex("Item_ID"));
+                String category = cursor.getString(cursor.getColumnIndex("Category"));
+                String name = cursor.getString(cursor.getColumnIndex("Name"));
+                String description = cursor.getString(cursor.getColumnIndex("Description"));
+                double price = cursor.getDouble(cursor.getColumnIndex("Price"));
+                boolean availability = cursor.getInt(cursor.getColumnIndex("Availability")) == 1;
+                byte[] image = cursor.getBlob(cursor.getColumnIndex("Image"));
+
+                FoodItem foodItem = new FoodItem(id, category, name, description, price, availability, image);
+                foodItemList.add(foodItem);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return foodItemList;
     }
 
 }

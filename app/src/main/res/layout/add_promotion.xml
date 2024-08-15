@@ -8,13 +8,13 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:text="Add Promotion"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etPromotionName"
