@@ -1,17 +1,11 @@
-// DatabaseHelper.java
 package com.example.mealmate.database;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.mealmate.admin_activities.FoodItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MealMate.db";
@@ -143,6 +137,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO PaymentMethods (Method_Name) VALUES ('Cash');");
         db.execSQL("INSERT INTO PaymentMethods (Method_Name) VALUES ('Card');");
+
+
+
     }
 
     @Override
@@ -162,7 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
         onUpgrade(db, oldVersion, newVersion);
     }
 
@@ -186,7 +183,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("Name", foodItem.getName());
         contentValues.put("Description", foodItem.getDescription());
         contentValues.put("Price", foodItem.getPrice());
-        contentValues.put("Availability", foodItem.isAvailable() ? 1 : 0);
         contentValues.put("Image", foodItem.getImage());
 
         int result = db.update("MenuItems", contentValues, "Item_ID=?", new String[]{String.valueOf(foodItem.getId())});
@@ -229,53 +225,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    @SuppressLint("Range")
-    public List<FoodItem> getAllFoodItems() {
-        List<FoodItem> foodItemList = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM MenuItems", null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                int id = cursor.getInt(cursor.getColumnIndex("Item_ID"));
-                String category = cursor.getString(cursor.getColumnIndex("Category"));
-                String name = cursor.getString(cursor.getColumnIndex("Name"));
-                String description = cursor.getString(cursor.getColumnIndex("Description"));
-                double price = cursor.getDouble(cursor.getColumnIndex("Price"));
-                boolean availability = cursor.getInt(cursor.getColumnIndex("Availability")) == 1;
-                byte[] image = cursor.getBlob(cursor.getColumnIndex("Image"));
-
-                FoodItem foodItem = new FoodItem(id, category, name, description, price, availability, image);
-                foodItemList.add(foodItem);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return foodItemList;
-    }
-
-    @SuppressLint("Range")
-    public List<FoodItem> getFoodItemsByCategory(String meal) {
-        List<FoodItem> items = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("MenuItems",
-                new String[]{"Item_ID", "Category", "Name", "Description", "Price", "Availability", "Image"},
-                "Category=?",
-                new String[]{meal},
-                null, null, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                int id = cursor.getInt(cursor.getColumnIndex("Item_ID"));
-                String category = cursor.getString(cursor.getColumnIndex("Category"));
-                String name = cursor.getString(cursor.getColumnIndex("Name"));
-                String description = cursor.getString(cursor.getColumnIndex("Description"));
-                double price = cursor.getDouble(cursor.getColumnIndex("Price"));
-                boolean availability = cursor.getInt(cursor.getColumnIndex("Availability")) == 1;
-                byte[] image = cursor.getBlob(cursor.getColumnIndex("Image"));
-                items.add(new FoodItem(id, category, name, description, price, availability, image));
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return items;
-    }
 }

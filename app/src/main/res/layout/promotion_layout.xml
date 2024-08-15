@@ -35,6 +35,15 @@
                 android:textSize="20sp" />
 
         </LinearLayout>
+
+        <!-- Add Promotion Button -->
+        <Button
+            android:id="@+id/btnAddPromotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Promotion"
+            android:layout_centerInParent="true"/>
+
     </RelativeLayout>
 
     <!--include the menu navigation bar-->
@@ -44,6 +53,5 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
